@@ -64,7 +64,8 @@
 라즈베리 파이 GPIO와 센서/액추에이터 간의 결선도
 
 <p align="center">
-  <img src="images/circuit_diagram.png" width="65%" alt="하드웨어 회로도" />
+  <img src="images/system_circuitdiagram.png" width="65%" alt="하드웨어 회로도" />
+  <img src="images/circuit_diagram.png" width="65%" alt="하드웨어 회로" />
 </p>
 
 - **DHT11 온습도 센서**: GPIO 4 (DATA), VCC(3.3V), GND
