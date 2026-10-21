@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - 스마트 대파 화분</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 25px;
+        }
+        .card {
+            background: #f9fbf9;
+            border: 1px solid #e0e8e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+        .card-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 1.05em;
+        }
+        .card-row .label {
+            font-weight: 600;
+            color: #555;
+        }
+        .card-row .value {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .status-box {
+            text-align: center;
+            padding: 12px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            color: #1b5e20;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            padding: 12px 15px;
+            font-size: 0.95em;
+            font-weight: bold;
+            color: #fff;
+            background: #4caf50;
+            border-radius: 6px;
+            transition: background 0.2s ease;
+        }
+        .btn:hover {
+            background: #388e3c;
+        }
+        .btn-danger {
+            background: #e53935;
+        }
+        .btn-danger:hover {
+            background: #c62828;
+        }
+        .btn-info {
+            background: #0288d1;
+        }
+        .btn-info:hover {
+            background: #0277bd;
+        }
+        .btn-full {
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 스마트 대파 화분</h1>
+        <div class="subtitle">Raspberry Pi Smart Gardening System</div>
+
+        <div class="status-box">
+            상태 메시지: {{ text if text else "시스템 정상 작동 중" }}
+        </div>
+
+        <div class="card">
+            <div class="card-row">
+                <span class="label">📅 현재 시각</span>
+                <span class="value">{{ time }}</span>
+            </div>
+            <div class="card-row">
+                <span class="label">🌡️ 실내 온도</span>
+                <span class="value">{{ temp }} °C</span>
+            </div>
+            <div class="card-row">
+                <span class="label">💧 대기 습도</span>
+                <span class="value">{{ humi }} %</span>
+            </div>
+            <div class="card-row">
+                <span class="label">📏 대파 생육 길이</span>
+                <span class="value">{{ height }} cm</span>
+            </div>
+        </div>
+
+        <div class="btn-grid">
+            <a href="/water" class="btn">💧 1회 급수 (Water Once)</a>
+            <a href="/sensor" class="btn btn-info">🔍 수분 센서 상태</a>
+            <a href="/auto/water/ON" class="btn">▶️ 자동 급수 시작</a>
+            <a href="/auto/water/OFF" class="btn btn-danger">⏹️ 자동 급수 정지</a>
+            <a href="/last_watered" class="btn btn-info">🕒 마지막 급수 일시</a>
+            <a href="/db" class="btn btn-info">💾 DB 데이터 저장</a>
+            <a href="/" class="btn btn-full">🔄 새로고침 (Dashboard)</a>
+        </div>
+    </div>
+</body>
+</html>
